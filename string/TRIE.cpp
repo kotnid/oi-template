@@ -13,7 +13,7 @@ void insert(string S) {
     int cur = 0;
     for(int i=0; i<s.length(); i++){
         if(trie[cur].child[s[i]-'a'] == -1){
-            trie[cur].child(s[i]-'a') = trie.size();
+            trie[cur].child[s[i]-'a'] = trie.size();
             trie.emplace_back();
         }
         cur = trie[cur].child[s[i]-'a'];
@@ -24,8 +24,8 @@ void insert(string S) {
 bool lookup(string s){
     int cur = 0;
     for(int i=0; i<s.length(); i++){
-        if(trie[cur].child(s[i]-'a') == -1)return 0;
-        cur = trie[cur].child(s[i]-'a');
+        if(trie[cur].child[s[i]-'a'] == -1)return 0;
+        cur = trie[cur].child[s[i]-'a'];
     }
     return trie[cur].isWord;
 }
