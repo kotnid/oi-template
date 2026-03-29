@@ -1,27 +1,21 @@
-#include <bits/stdc++.h>
-using namespace std;
+vector<int> hierholzer(int st){ // find euler cycle
+    vector<int>res;
+    stack<int>sk;
+    sk.push(st);
 
-const int N = 2e5+5;
-vector<int>adj[N];
-
-void circuit(int n){
-    if(n==0)return ;
-
-    vector<int>s, ans; 
-    s.push_back(0);
-
-    while(!s.empty()){
-        int u = s.back();
-        if(!adj[u].empty()){ // need to continue visit 
-            int v = adj[u].back();
-            adj[u].pop_back();
-            s.push_back(v);
+    while(sk.size()){
+        int u = sk.top();
+        if(g[u].size()){
+            auto [v,w] = g[u].back();
+            g[u].pop_back();
+            if(vis[w])continue;
+            vis[w] = 1;
+            used[w] = (u!=a[w]);
+            sk.push(v);
         }else{
-            ans.push_back(u);
-            s.pop_back();
-        }   
+            res.push_back(u);
+            sk.pop();
+        }
     }
-
-    // reverse
-    reverse(ans.begin(), ans.end());
+    return res;
 }
