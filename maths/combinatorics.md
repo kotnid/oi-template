@@ -21,3 +21,24 @@ $$ \sum_{k=0}^{n}\binom{m}{k}\binom{p}{k} = \binom{m+p}{n} $$
 
 **Formula:**
 $$ \sum_{k=0}^{n}\binom{A+k}{k}\binom{B+n-k}{n-k} = \binom{A+B+n+1}{n} $$
+
+## 5. Master Theorem 
+- Find recursion time complexity 
+
+**Formula:** 
+$$T(n) = aT\left(\frac{n}{b}\right) + O(n^d)$$
+
+### Case 1: Bottom-Heavy (Branching dominates)
+If branching creates more work than the merge step can shrink, the time complexity is dominated by the leaves of the recursion tree.
+* **Condition:** $a > b^d \quad \iff \quad d < \log_b a$
+* **Complexity:** $$T(n) = O(n^{\log_b a})$$
+
+### Case 2: Balanced (Work is evenly distributed)
+If the branching matches the merge work perfectly, every level of the tree does the exact same amount of work. We multiply the work per level by the tree's height ($\log n$).
+* **Condition:** $a = b^d \quad \iff \quad d = \log_b a$
+* **Complexity:** $$T(n) = O(n^d \log n) \quad \text{or} \quad O(n^{\log_b a} \log n)$$
+
+### Case 3: Top-Heavy (Merging dominates)
+If the merge step is so expensive that it overshadows the branching, the time complexity is entirely determined by the very first merge at the root of the tree.
+* **Condition:** $a < b^d \quad \iff \quad d > \log_b a$
+* **Complexity:** $$T(n) = O(n^d)$$
