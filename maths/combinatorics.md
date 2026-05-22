@@ -42,3 +42,9 @@ If the branching matches the merge work perfectly, every level of the tree does 
 If the merge step is so expensive that it overshadows the branching, the time complexity is entirely determined by the very first merge at the root of the tree.
 * **Condition:** $a < b^d \quad \iff \quad d > \log_b a$
 * **Complexity:** $$T(n) = O(n^d)$$
+
+## 6. Lagrange's four-square theorem
+Sample question: [CF2231F](https://codeforces.com/contest/2231/problem/F)
+For every natural number $n$, there exist integers $a, b, c,$ and $d$ such that:
+$$ n = a^2 + b^2 + c^2 + d^2 $$
+$$ \forall n \in \mathbb{N}, \exists a, b, c, d \in \mathbb{Z} : n = a^2 + b^2 + c^2 + d^2 $$
