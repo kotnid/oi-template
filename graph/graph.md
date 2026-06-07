@@ -34,3 +34,18 @@ Usually we will fixed the smallest available transition (as mod)
 ## 01 bfs ##
 Edge weight either 0 or k 
 push 0 at front, k at back
+
+
+---
+
+# Random graph knowledge
+
+## Vertex Cover vs Independent Set
+- Vertex Cover: set of nodes such that every edge touches at least one of the nodes 
+- Independent Set: set of nodes such that no edge touches 2 nodes 
+- Given Independent Set <=> unselected nodes form Vertex Cover (not form only when exist 1 edge 2 nodes in IS, which contradict with definition)
+- Max IS + MIN VC = Total Vertices 
+
+## Konig's Theorem (MVC in Bipartite)
+- MVC = Maximum Matching if graph is bipartite
+- Max flow can find the value then 
